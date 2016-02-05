@@ -1,13 +1,12 @@
-FROM	ubuntu:latest
+FROM	ubuntu:14.04
 MAINTAINER	satish verma <satishsverma5@gmail.com>
-
-RUN echo "nameserver 192.168.1.1" > /etc/resolv.conf
 # Update package list and upgrade the ubuntu
-RUN apt-get update
-RUN apt-get -y upgrade
-
-# Install openssh server
-RUN apt-get install -y openssh-server
+RUN \
+     echo "nameserver 192.168.1.1" > /etc/resolv.conf && \
+     apt-get install -y openssh-server && \
+     apt-get update && \
+     apt-get -y upgrade && \
+     rm -rf /var/lib/apt/lists/*
 
 # Configure openssh server
 RUN mkdir /var/run/sshd
