@@ -1,7 +1,7 @@
 FROM	ubuntu:latest
 MAINTAINER	satish verma <satishsverma5@gmail.com>
 
-echo "nameserver 192.168.1.1" > /etc/resolv.conf
+RUN echo "nameserver 192.168.1.1" > /etc/resolv.conf
 # Update package list and upgrade the ubuntu
 RUN apt-get update
 RUN apt-get -y upgrade
